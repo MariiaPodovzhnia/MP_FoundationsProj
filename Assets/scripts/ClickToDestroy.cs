@@ -2,14 +2,8 @@ using UnityEngine;
 
 public class ClickToDestroy : MonoBehaviour
 {
-   public GameObject clickObjToDestroy;
-
-    void OnMouseDown()
+    public void RemoveKey()
     {
-        Debug.Log("Object was clicked");
-      //  Debug.LogError("Object was clicked");//this Log Error will stop play mode in the editor
-      //  Debug.LogWarning("Object was clicked");
-
-        Destroy(clickObjToDestroy);
-}
+        Destroy(gameObject);
+    }
 }
