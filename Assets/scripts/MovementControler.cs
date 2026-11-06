@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class MovementControler : MonoBehaviour
@@ -16,28 +17,27 @@ public class MovementControler : MonoBehaviour
 
     void Update()
     {
-        // Движение вперёд и назад
-        if (Input.GetKey(KeyCode.W))
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
+
+        Vector3 move = transform.right * x + transform.forward * z;
+        move = Vector3.ClampMagnitude(move, 1f);
+
+        if (controller.isGrounded)
         {
-            transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
+            verticalVelocity = -2f;
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                verticalVelocity = jumpForce;
+            }
         }
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(Vector3.back * movementSpeed * Time.deltaTime);
-        }
+        verticalVelocity += gravity * Time.deltaTime;
 
-        // Движение влево и вправо
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
-        }
+        Vector3 velocity = move * movementSpeed;
+        velocity.y = verticalVelocity;
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(Vector3.right * movementSpeed * Time.deltaTime);
-        }
-
-    
+        controller.Move(velocity * Time.deltaTime);
     }
 }
