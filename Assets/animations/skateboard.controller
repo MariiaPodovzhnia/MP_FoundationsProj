@@ -57,7 +57,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SkateboardAnimation
+  m_Name: SkateBoardAnim
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -70,7 +70,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6002b9e820aba6a4e93aa6d67e721719, type: 2}
+  m_Motion: {fileID: 7400000, guid: 0a5f9c29287c149488517c5ed956102f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

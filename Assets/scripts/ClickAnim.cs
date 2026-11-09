@@ -1,18 +1,30 @@
+
+
 using UnityEngine;
 
 public class ClickAnim : MonoBehaviour
 {
     Animator animator;
-    
-    // This script is click to trigger an animation on the object the script is attached to
+
     void Start()
     {
-      animator = GetComponent<Animator>();  
+        animator = GetComponent<Animator>();
+
+        if (animator == null)
+        {
+            animator = GetComponentInChildren<Animator>();
+        }
     }
 
-    
     void OnMouseDown()
     {
-        animator.SetBool("IsClicked", true);
+        if (animator != null)
+        {
+            animator.SetBool("IsClicked", true);
+        }
+        else
+        {
+            Debug.LogError("Animator not found!");
+        }
     }
 }
