@@ -38,7 +38,7 @@ public class ItemCollector : MonoBehaviour
             counterText.text = "Collected: " + currentItems + " / " + totalItems;
         }
     }
-    // Метод проверяет, собраны ли все предметы
+    
 public bool HasCollectedAll()
 {
     return currentItems >= totalItems;

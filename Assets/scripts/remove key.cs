@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class removekey : MonoBehaviour
- {
+{
     void OnMouseDown()
     {
         Debug.Log("CLICK WORKS!");

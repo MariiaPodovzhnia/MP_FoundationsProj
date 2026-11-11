@@ -41,7 +41,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Metallic: 1
-    - _Smoothness: 0.5
+    - _Smoothness: 0.665
     m_Colors:
     - _BaseColor: {r: 0.7264151, g: 0.7229886, b: 0.7229886, a: 1}
     - _Color: {r: 0.7264151, g: 0.7229886, b: 0.7229886, a: 1}
