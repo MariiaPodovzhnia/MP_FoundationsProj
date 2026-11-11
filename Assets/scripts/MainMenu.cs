@@ -1,23 +1,17 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-        public GameObject menuPanel;
-
-    void Start()
-    {
-       
-        Time.timeScale = 1f;
-    }
-
     public void StartGame()
     {
         
-        if (menuPanel != null)
-        {
-            menuPanel.SetActive(false);
-        }
+        SceneManager.LoadScene("Dialogue");
+    }
 
-       
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Игра закрыта");
     }
 }

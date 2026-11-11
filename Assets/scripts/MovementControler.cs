@@ -10,11 +10,13 @@ public class MovementControler : MonoBehaviour
     private float verticalVelocity;
     private CharacterController controller;
 
-    void Start()
+   void Start()
     {
         controller = GetComponent<CharacterController>();
-    }
 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
     void Update()
     {
         float x = Input.GetAxisRaw("Horizontal");

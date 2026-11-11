@@ -5,9 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/MyProjectScenes/Menu.unity
+    guid: 2cec1e1ac9e70ed4c96b57fb715b9a98
+  - enabled: 1
+    path: Assets/Scenes/MyProjectScenes/Dialogue.unity
+    guid: 71adefd0232cc6245a67950b18c44f2a
+  - enabled: 1
+    path: Assets/Scenes/MyProjectScenes/01_MainScene_SkatePark.unity
+    guid: 5d989c83240c22d46b261aa430dbb703
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
