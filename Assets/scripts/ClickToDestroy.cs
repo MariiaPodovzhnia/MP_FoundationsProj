@@ -1,17 +1,36 @@
 using UnityEngine;
 
+
 public class ClickToDestroy : MonoBehaviour
 {
-    public void RemoveKey()
+    public GameObject myGameManager; 
+    ItemCollector myCollectorScript; 
+
+    void Start()
     {
         
-        ItemCollector collector = FindFirstObjectByType<ItemCollector>();
-        if (collector != null)
+        if (myGameManager != null)
         {
-            collector.CollectItem();
+            myCollectorScript = myGameManager.GetComponent<ItemCollector>();
+        }
+    }
+
+   
+    public void RemoveKey()
+    {
+        Debug.Log("Item removed: " + gameObject.name);
+
+        if (myCollectorScript != null)
+        {
+            myCollectorScript.CollectItem();
         }
 
-        
-        Destroy(gameObject);
+        GameObject.Destroy(gameObject); 
+    }
+
+  
+    void OnMouseDown()
+    {
+        RemoveKey();
     }
 }

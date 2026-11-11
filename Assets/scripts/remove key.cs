@@ -1,21 +1,26 @@
 using UnityEngine;
 
+
 public class removekey : MonoBehaviour
 {
+    public ClickToDestroy keyScript; // reference to main destroy script
+
+    void Start()
+    {
+        // automatically finds ClickToDestroy 
+        if (keyScript == null)
+        {
+            keyScript = GetComponentInParent<ClickToDestroy>();
+        }
+    }
+
     void OnMouseDown()
     {
-        Debug.Log("CLICK WORKS!");
+        Debug.Log("Child key clicked: " + gameObject.name);
 
-        ClickToDestroy key = GetComponentInParent<ClickToDestroy>();
-
-        if (key != null)
+        if (keyScript != null)
         {
-            Debug.Log("PARENT FOUND!");
-            key.RemoveKey();
-        }
-        else
-        {
-            Debug.Log("PARENT NOT FOUND!");
+            keyScript.RemoveKey();
         }
     }
 }

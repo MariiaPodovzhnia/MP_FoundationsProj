@@ -1,30 +1,18 @@
-
-
 using UnityEngine;
+
 
 public class ClickAnim : MonoBehaviour
 {
-    Animator animator;
+    public Animator thisAnimator; 
 
     void Start()
     {
-        animator = GetComponent<Animator>();
-
-        if (animator == null)
-        {
-            animator = GetComponentInChildren<Animator>();
-        }
+        thisAnimator = gameObject.GetComponent<Animator>(); 
     }
 
     void OnMouseDown()
     {
-        if (animator != null)
-        {
-            animator.SetBool("IsClicked", true);
-        }
-        else
-        {
-            Debug.LogError("Animator not found!");
-        }
+        thisAnimator.SetBool("IsClicked", true);
+        Debug.Log("Object clicked, animation started");
     }
 }

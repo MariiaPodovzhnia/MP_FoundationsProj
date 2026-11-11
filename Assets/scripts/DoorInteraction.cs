@@ -1,21 +1,29 @@
 using UnityEngine;
 
+
 public class DoorInteraction : MonoBehaviour
 {
-    [Header("Win Settings")]
-    public int requiredItems = 3;
-    
-    [Header("UI")]
-    public GameObject winPanel; 
+    public GameObject myGameManager; 
+    ItemCollector myCollectorScript;
 
-    private void OnMouseDown()
+    public int requiredItems = 3; 
+    public GameObject winPanel;   
+
+    void Start()
     {
-        ItemCollector collector = FindFirstObjectByType<ItemCollector>();
-
-        if (collector != null)
+        
+        if (myGameManager != null)
         {
-            // check if the player has collected all required items
-            if (collector.HasCollectedAll())
+            myCollectorScript = myGameManager.GetComponent<ItemCollector>();
+        }
+    }
+
+    void OnMouseDown()
+    {
+        if (myCollectorScript != null)
+        {
+            
+            if (myCollectorScript.HasCollectedAll())
             {
                 Debug.Log("Door opened! You won the game!");
                 WinGame();
@@ -25,22 +33,16 @@ public class DoorInteraction : MonoBehaviour
                 Debug.Log("You need to collect all items first! Not enough items.");
             }
         }
-        else
-        {
-            Debug.LogWarning("ItemCollector (GameManager) not found on the scene!");
-        }
     }
 
-    private void WinGame()
+    void WinGame()
     {
-        
         if (winPanel != null)
         {
-            winPanel.SetActive(true);
+            winPanel.SetActive(true); 
         }
 
-        
-        Time.timeScale = 0f;
+        Time.timeScale = 0f; 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }

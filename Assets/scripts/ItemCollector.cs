@@ -24,7 +24,7 @@ public class ItemCollector : MonoBehaviour
         Debug.Log("Items collected: " + currentItems + " of " + totalItems);
 
         // If all items are collected, you can add some logic here if needed, 
-        // but the game will NOT pause or stop.
+        // but the game will not pause or stop.
         if (currentItems >= totalItems)
         {
             Debug.Log("All items collected!");

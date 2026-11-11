@@ -3,15 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public string firstSceneName = "Dialogue";
+
     public void StartGame()
     {
-        
-        SceneManager.LoadScene("Dialogue");
+        SceneManager.LoadScene(firstSceneName);
     }
 
     public void QuitGame()
     {
         Application.Quit();
-        Debug.Log("Игра закрыта");
+        Debug.Log("Application has Quit. This will only quit when running Build");
     }
 }

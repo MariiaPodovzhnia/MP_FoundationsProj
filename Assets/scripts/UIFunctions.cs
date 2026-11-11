@@ -2,30 +2,26 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
+
 public class UIFunctions : MonoBehaviour
 {
-    [Header("Scene Settings")]
-    public string sceneName;
+    public string sceneName; 
 
-    [Header("Toggle & Menu")]
     public GameObject objectToToggle;
     public GameObject UIMenu;
 
-    [Header("Dialogue / Hints")]
-    public GameObject dialogueBox;      
-    public TextMeshProUGUI dialogueText; 
-    [TextArea(2, 5)]
-    public string[] dialogueLines;       
-    private int currentDialogueIndex = 0;
+    public GameObject dialogueBox;        
+    public TextMeshProUGUI dialogueText;  
+    public string[] dialogueLines;        
+    int currentDialogueIndex = 0;
 
-    void Start()
+ void Start()
+{
+    if (dialogueLines != null && dialogueLines.Length > 0 && dialogueText != null)
     {
-        
-        if (dialogueLines != null && dialogueLines.Length > 0 && dialogueText != null)
-        {
-            dialogueText.text = dialogueLines[0];
-        }
+        dialogueText.text = dialogueLines[0];
     }
+}
 
     void Update()
     {
@@ -35,11 +31,13 @@ public class UIFunctions : MonoBehaviour
     public void LoadSceneByName(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+         // loads scene by string name
     }
 
     public void LoadScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
+        // loads next scene in build index
     }
 
     public void QuitGameBtn()
@@ -50,40 +48,30 @@ public class UIFunctions : MonoBehaviour
 
     public void ActivateObjectBtn()
     {
-        if (objectToToggle != null)
-        {
-            objectToToggle.SetActive(true);
-        }
+        objectToToggle.SetActive(true);
     }
 
     public void PressKeyToSetActive()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && UIMenu != null)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             UIMenu.SetActive(true);
         }
     }
 
-    // Next Method
+    
     public void NextDialogueLine()
     {
-        currentDialogueIndex++;
+        currentDialogueIndex = currentDialogueIndex + 1;
 
-        // If there are more lines to show, update the dialogue text; otherwise, hide the dialogue box
         if (currentDialogueIndex < dialogueLines.Length)
         {
-            if (dialogueText != null)
-            {
-                dialogueText.text = dialogueLines[currentDialogueIndex];
-            }
+            dialogueText.text = dialogueLines[currentDialogueIndex];
         }
         else
         {
-            // When all lines are shown, hide the dialogue box
-            if (dialogueBox != null)
-            {
-                dialogueBox.SetActive(false);
-            }
+            dialogueBox.SetActive(false); // hides dialogue box when finished
+            Debug.Log("Dialogue hint finished, closing box");
         }
     }
 }
